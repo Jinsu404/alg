@@ -7,12 +7,12 @@ d = list(map(int,sys.stdin.readline().split()))
 dq = deque()
 
 for i in range(n):
-    temp = d[i]
     
-    while dq and dq[-1] > temp:
+    while dq and dq[-1] > d[i]:
         dq.pop()
-    dq.append(temp)
-        
-    if i >= l and dq[0] == d[i-l]: dq.popleft()
-    
-    print(dq[0], end=' ')
+    dq.append(d[i])
+
+    if i >= l and d[i-l] == dq[0]:
+        dq.popleft()
+
+    print(dq[0],end=' ')
